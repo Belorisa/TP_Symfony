@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block body %}
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Author</th>
+            <th> Date Created</th>
+        </tr>
+        {% for wish in wishes %}
+            {% if wish.id == id %}
+            <tr>
+                <td>{{ wish.title }}</td>
+                <td>{{ wish.description }}</td>
+                <td>{{ wish.author }}</td>
+                <td>{{ wish.dateCreated|date("Y/m/d") }}</td>
+
+            </tr>
+            {% endif %}
+        {% endfor %}
+
+    </table>
+{% endblock %}
