@@ -10,17 +10,16 @@
             <th>Author</th>
             <th> Date Created</th>
         </tr>
-        {% for wish in wishes %}
-            {% if wish.id == id %}
+            {% if wishes.id == id %}
             <tr>
-                <td>{{ wish.title }}</td>
-                <td>{{ wish.description }}</td>
-                <td>{{ wish.author }}</td>
-                <td>{{ wish.dateCreated|date("Y/m/d") }}</td>
+                <td>{{ wishes.title }}</td>
+                <td>{{ wishes.description }}</td>
+                <td>{{ wishes.author }}</td>
+                <td>{{ wishes.dateCreated|date("Y/m/d") }}</td>
 
             </tr>
             {% endif %}
-        {% endfor %}
+
 
     </table>
 {% endblock %}

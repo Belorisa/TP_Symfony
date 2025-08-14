@@ -1,14 +1,25 @@
 
 header {
-    background-color: darkolivegreen;
+    background: linear-gradient(#e66465, #9198e5);
     padding-left: 10%;
     a {
         text-decoration: none;
         color: black;
     }
+    h1 {
+        color: black;
+    }
 }
 body {
-    background-color: aliceblue;
+    background: linear-gradient(#9B2A46, #5386ED);
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    color: white;
+    a {
+
+        color:white;
+    }
 }
 .entete {
     gap: 10px;

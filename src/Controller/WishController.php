@@ -16,7 +16,7 @@ class WishController extends AbstractController
     #[Route('/wish/{id}', name: 'wish', requirements: ['id'=>'\d+'])]
     public function wishDetail(int $id,WishRepository $wishRepository): Response
     {
-        return $this->render('wish/Wish.html.twig',['id' => $id,'wishes' => $wishRepository->findAll()]);
+        return $this->render('wish/Wish.html.twig',['id' => $id,'wishes' => $wishRepository->find($id)]);
     }
 
     #[Route('/list',name: '_list')]
