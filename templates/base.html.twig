@@ -27,7 +27,17 @@
             <a href="{{ path('app_main') }}"> Home </a>
             <a href="{{ path('_list') }}"> All wishes</a>
             <a href="{{ path('app_about_us') }}">About us</a>
+            <a href="{{ path('_add') }}">Ajouter un voeu</a>
+
         </nav>
+
+            {% for type, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ type }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
 
         {% endblock %}
 

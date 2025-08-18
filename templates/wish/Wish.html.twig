@@ -10,16 +10,15 @@
             <th>Author</th>
             <th> Date Created</th>
         </tr>
-            {% if wishes.id == id %}
             <tr>
-                <td>{{ wishes.title }}</td>
-                <td>{{ wishes.description }}</td>
-                <td>{{ wishes.author }}</td>
-                <td>{{ wishes.dateCreated|date("Y/m/d") }}</td>
+                <td>{{ wish.title }}</td>
+                <td>{{ wish.description }}</td>
+                <td>{{ wish.author }}</td>
+                <td>{{ wish.dateCreated|date("Y/m/d") }}</td>
 
             </tr>
-            {% endif %}
-
-
     </table>
+    <a href="{{ path('_edit',{id: wish.id}) }}">Modifier</a>
+    <a href="{{ path('_delete') }}">Supprimer</a>
+
 {% endblock %}
