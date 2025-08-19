@@ -18,7 +18,7 @@
 
             </tr>
     </table>
-    <a href="{{ path('_edit',{id: wish.id}) }}">Modifier</a>
-    <a href="{{ path('_delete') }}">Supprimer</a>
+    <a href="{{ path('_edit',{id: wish.id}) }}"><button type="button" class="btn btn-secondary">Modifier</button></a>
+    <a href="{{ path('_delete',{id: wish.id}) }}"><button type="button" class="btn btn-danger">Supprimer</button></a>
 
 {% endblock %}

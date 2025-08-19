@@ -17,7 +17,7 @@ class WishController extends AbstractController
 {
 
 
-    #[Route('/wish/{id}', name: 'wish', requirements: ['id'=>'\d+'])]
+    #[Route('/wish/{id}', name: '_wish', requirements: ['id'=>'\d+'])]
     public function wishDetail(Wish $wish): Response
     {
         return $this->render('wish/Wish.html.twig',['wish' => $wish]);
@@ -42,7 +42,7 @@ class WishController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', 'Wish added successfully');
-            return $this->redirectToRoute('wish',['id' => $wish->getId()]);
+            return $this->redirectToRoute('_wish',['id' => $wish->getId()]);
         }
         return $this->render('wish/WishForm.html.twig', ['wish_form' => $form,]);
     }
@@ -59,7 +59,7 @@ class WishController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', 'Wish changed successfully');
-            return $this->redirectToRoute('wish',['id' => $wish->getId()]);
+            return $this->redirectToRoute('_wish',['id' => $wish->getId()]);
         }
         return $this->render('wish/WishForm.html.twig', ['wish_form' => $form,]);
     }
