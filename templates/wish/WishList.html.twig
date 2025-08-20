@@ -9,7 +9,7 @@
         </tr>
         {% for wish in wishes %}
             <tr>
-                <td><a href="{{ path('wish', {'id': wish.id}) }}">{{ wish.title }}</a></td>
+                <td><a href="{{ path('_wish', {'id': wish.id}) }}">{{ wish.title }} [{% for categorie in  wish.categories  %} {{categorie.name }} {% endfor %}]</a></td>
             </tr>
         {% endfor %}
 

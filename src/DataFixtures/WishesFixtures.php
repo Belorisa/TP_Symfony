@@ -20,6 +20,8 @@ class WishesFixtures extends Fixture
             $wish->setAuthor($faker->name);
             $wish->setDateCreated(new \dateTime('now'));
             $wish->setIsPublished(true);
+            $wish->setCategory($faker->randomElement(['Travel & Adventure','Sport Fiction','Entertainment']));
+
 
             $manager->persist($wish);
         }

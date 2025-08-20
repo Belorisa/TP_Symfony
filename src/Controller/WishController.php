@@ -26,7 +26,8 @@ class WishController extends AbstractController
     #[Route('/list',name: '_list')]
     public function wishList(WishRepository $wishRepository): Response
     {
-        return $this->render('wish/WishList.html.twig', ['wishes' =>$wishRepository->findAll()]);
+        $wishes = $wishRepository->findAllWithCategories();
+        return $this->render('wish/WishList.html.twig', ['wishes' =>$wishes]);
     }
 
     #[Route('/add',name: '_add')]
@@ -38,6 +39,9 @@ class WishController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() ){
+            foreach ($wish->getCategories() as $category) {
+                $category->addWish($wish);
+            }
             $em->persist($wish);
             $em->flush();
 
@@ -55,6 +59,9 @@ class WishController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() ){
+            foreach ($wish->getCategories() as $category) {
+                $category->addWish($wish);
+            }
             $em->persist($wish);
             $em->flush();
 

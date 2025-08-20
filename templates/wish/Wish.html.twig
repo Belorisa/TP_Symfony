@@ -8,17 +8,19 @@
             <th>Title</th>
             <th>Description</th>
             <th>Author</th>
+            <th>Category</th>
             <th> Date Created</th>
         </tr>
             <tr>
                 <td>{{ wish.title }}</td>
                 <td>{{ wish.description }}</td>
                 <td>{{ wish.author }}</td>
+                <td>[[{% for categorie in  wish.categories  %} {{ categorie.name }}{% endfor %}]</td>
                 <td>{{ wish.dateCreated|date("Y/m/d") }}</td>
 
             </tr>
     </table>
-    <a href="{{ path('_edit',{id: wish.id}) }}"><button type="button" class="btn btn-secondary">Modifier</button></a>
+    <a href="{{ path('_edit',{id: wish.id}) }}"><button type="button" class="btn btn-secondary">Modifiers</button></a>
     <a href="{{ path('_delete',{id: wish.id}) }}"><button type="button" class="btn btn-danger">Supprimer</button></a>
 
 {% endblock %}

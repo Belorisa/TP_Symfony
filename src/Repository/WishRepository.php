@@ -16,6 +16,15 @@ class WishRepository extends ServiceEntityRepository
         parent::__construct($registry, Wish::class);
     }
 
+    public function findAllWithCategories()
+    {
+        return $this->createQueryBuilder('w')
+            ->leftJoin('w.categories', 'c')
+            ->addSelect('c')
+            ->getQuery()
+            ->getResult();
+    }
+
     //    /**
     //     * @return Wish[] Returns an array of Wish objects
     //     */
